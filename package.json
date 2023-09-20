@@ -1,0 +1,26 @@
+{
+  "name": "crud-spirit",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "node --test --require ts-node/register",
+    "test:watch": "node --watch --require ts-node/register",
+    "1-crud": "nodemon --exec ts-node src/1-crud/index.ts",
+    "2-rich-language": "nodemon --exec ts-node src/2-rich-language/index.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/express": "^4.17.17",
+    "express": "^4.18.2",
+    "sqlite3": "^5.1.6",
+    "typeorm": "^0.3.17",
+    "typescript": "^5.2.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1",
+    "ts-node": "^10.9.1"
+  }
+}

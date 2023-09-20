@@ -1,0 +1,97 @@
+GET http://localhost:3000/projects
+
+###
+# @name createProject
+POST http://localhost:3000/projects
+Content-Type: application/json
+
+{
+    "name": "Projeto 1",
+    "description": "Descrição do projeto 1"
+}
+
+###
+@project_id = {{createProject.response.body.id}}
+
+###
+POST http://localhost:3000/projects/{{project_id}}/start
+Content-Type: application/json
+
+{
+    "started_at": "2021-01-01"
+}
+
+###
+POST http://localhost:3000/projects/{{project_id}}/complete
+Content-Type: application/json
+
+{
+    "completed_at": "2021-01-01"
+}
+
+
+###
+POST http://localhost:3000/projects/{{project_id}}/cancel
+Content-Type: application/json
+
+{
+    "canceled_at": "2021-01-01"
+}
+
+###
+PUT http://localhost:3000/projects/{{project_id}}
+Content-Type: application/json
+
+{
+    "name": "Projeto 1111",
+    "description": "Descrição do projeto 11111",
+    "forecasted_at": "2021-01-01"
+}
+
+###
+# @name createTask
+POST http://localhost:3000/projects/{{project_id}}/tasks
+Content-Type: application/json
+
+{
+    "name": "Tarefa 1",
+    "description": "Descrição da tarefa 1",
+    "forecasted_at": "2021-01-01"
+}
+
+###
+@task_id = {{createTask.response.body.id}}
+
+###
+POST http://localhost:3000/projects/{{project_id}}/tasks/{{task_id}}/start
+Content-Type: application/json
+
+{
+    "started_at": "2021-01-01"
+}
+
+###
+POST http://localhost:3000/projects/{{project_id}}/tasks/{{task_id}}/complete
+Content-Type: application/json
+
+{
+    "finished_at": "2021-01-01"
+}
+
+###
+POST http://localhost:3000/projects/{{project_id}}/tasks/{{task_id}}/cancel
+Content-Type: application/json
+
+{
+    "canceled_at": "2021-01-01"
+}
+
+###
+PUT http://localhost:3000/projects/{{project_id}}/tasks/{{task_id}}
+Content-Type: application/json
+
+{
+    "name": "Tarefa 1111",
+    "description": "Descrição da tarefa 1222",
+    "forecasted_at": "2021-01-01"
+}
